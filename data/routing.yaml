@@ -1,0 +1,30 @@
+# Gateways (and their monitor IPs) and static routes on router.
+# Not here on purpose: VLANs and WireGuard — a bad change there cuts the
+# console off the router, which is the path apply and its rollback use.
+gateways:
+- interface: "wan"
+  gateway: "dynamic"
+  name: "WAN_DHCP6"
+  weight: "1"
+  ipprotocol: "inet6"
+  descr: "Interface WAN_DHCP6 Gateway"
+  gw_down_kill_states: ""
+  monitor: "2606:4700:4700::1111"
+- interface: "wan"
+  gateway: "dynamic"
+  name: "WAN_DHCP"
+  weight: "1"
+  ipprotocol: "inet"
+  descr: "Interface WAN_DHCP Gateway"
+  gw_down_kill_states: ""
+- interface: "opt1"
+  gateway: "198.18.0.2"
+  name: "OPT1GW"
+  weight: ""
+  ipprotocol: "inet"
+  descr: ""
+  gw_down_kill_states: ""
+routes:
+- network: "198.51.100.7/32"
+  gateway: "OPT1GW"
+  descr: "aws"

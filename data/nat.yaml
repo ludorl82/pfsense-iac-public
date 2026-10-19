@@ -1,0 +1,29 @@
+# Port forwards (pfSense « NAT > Port Forward ») and outbound NAT rules
+# (« NAT > Outbound », mode hybrid — the mode itself is only watched).
+nat.portforward: []
+nat.outbound:
+- source:
+    network: "192.0.2.0/23"
+  sourceport: ""
+  descr: "no-NAT VLAN10 to aws VPC subnet (k3s etcd peer certs need true source IPs, 2026-07-22)"
+  target: ""
+  target_subnet: ""
+  interface: "opt1"
+  poolopts: ""
+  source_hash_key: ""
+  ipprotocol: "inet"
+  nonat: ""
+  destination:
+    network: "198.51.100.0/24"
+- source:
+    network: "198.18.8.0/24"
+  sourceport: ""
+  descr: ""
+  target: "wanip"
+  target_subnet: ""
+  interface: "wan"
+  poolopts: ""
+  source_hash_key: ""
+  ipprotocol: "inet"
+  destination:
+    any: ""

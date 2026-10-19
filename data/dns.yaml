@@ -1,0 +1,355 @@
+# Unbound host overrides on router — pfSense « DNS Resolver > Host Overrides ».
+# One entry per record: the A and the AAAA of a name are two entries.
+# Applied by scripts/pfsense-apply.sh (router/data.php); the WHOLE list is
+# owned: a name removed here is removed from the router.
+- host: "home-device-05"
+  domain: "lab.example"
+  ip:
+  - "203.0.113.73"
+  descr: ""
+- host: "arcade1"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.141"
+  descr: "claude: gaming VM 1 on serveur (RTX 3060 passthrough) 2026-08-17"
+- host: "arcade2"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.142"
+  descr: "claude: gaming VM 2 on serveur (reserved, 2nd GPU) 2026-08-17"
+- host: "argocd"
+  domain: "lab.example"
+  ip:
+  - "198.51.100.7"
+- host: "automatron"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.34"
+  descr: ""
+- host: "automatron"
+  domain: "lab.example"
+  ip:
+  - "2001:db8:50:a::22"
+  descr: ""
+- host: "automatron-local"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.34"
+  descr: ""
+- host: "aws"
+  domain: "lab.example"
+  ip:
+  - "198.51.100.7"
+  descr: ""
+- host: "jumphost"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.132"
+  descr: "claude: jumphost role alias for worker2, jumphost/console split 2026-08-07"
+- host: "jumphost"
+  domain: "lab.example"
+  ip:
+  - "2001:db8:50:a::84"
+  descr: "claude: jumphost role alias AAAA, jumphost/console split 2026-08-07"
+- host: "bob"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.129"
+  descr: ""
+- host: "bob"
+  domain: "lab.example"
+  ip:
+  - "2001:db8:50:a::81"
+  descr: ""
+- host: "bob"
+  domain: "ipmi.lab.example"
+  ip:
+  - "192.0.2.5"
+  descr: "claude: BMC moved off retired VLAN 30 2026-07-25"
+- host: "bob"
+  domain: "ipmi.example.com"
+  ip:
+  - "192.0.2.5"
+  descr: "claude: matches BMC cert SAN *.ipmi.example.com 2026-07-25"
+- host: "coquille"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.136"
+  descr: "claude: coquille = the console VM on bob since 2026-08-07 (jumphost/console split)"
+- host: "coquille"
+  domain: "lab.example"
+  ip:
+  - "2001:db8:50:a::88"
+  descr: "claude: coquille = the console VM on bob since 2026-08-07 (jumphost/console split)"
+- host: "cronicle"
+  domain: "lab.example"
+  ip:
+  - "198.51.100.7"
+  descr: "claude: converted from Cloudflare lab.example zone to local override 2026-07-23"
+- host: "docker"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.132"
+  descr: "claude: fleet container registry (ex-coquille Pi4), 2026-08-05"
+- host: "docker"
+  domain: "lab.example"
+  ip:
+  - "2001:db8:50:a::84"
+  descr: "claude: fleet container registry AAAA (hex convention), 2026-08-05"
+- host: "home-device-01"
+  domain: "lab.example"
+  ip:
+  - "203.0.113.34"
+  descr: ""
+- host: "vega"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.97"
+  descr: "claude: renamed eventreur -> vega 2026-10-18"
+  aliases:
+  - host: "eventreur"
+    domain: "lab.example"
+    description: "legacy name, remove once nothing references it"
+- host: "vega"
+  domain: "lab.example"
+  ip:
+  - "2001:db8:50:a::61"
+  descr: "claude: renamed eventreur -> vega 2026-10-18"
+  aliases:
+  - host: "eventreur"
+    domain: "lab.example"
+    description: "legacy name, remove once nothing references it"
+- host: "eventreur"
+  domain: "ipmi.lab.example"
+  ip:
+  - "192.0.2.7"
+  descr: "claude: BMC moved off retired VLAN 30 2026-07-25"
+- host: "eventreur"
+  domain: "ipmi.example.com"
+  ip:
+  - "192.0.2.7"
+  descr: "claude: matches BMC cert SAN *.ipmi.example.com 2026-07-25"
+- host: "frigate"
+  domain: "lab.example"
+  ip:
+  - "198.51.100.7"
+  descr: ""
+- host: "grafana"
+  domain: "lab.example"
+  ip:
+  - "198.51.100.7"
+  descr: ""
+- host: "home-device-17"
+  domain: "lab.example"
+  ip:
+  - "203.0.113.193"
+  descr: ""
+- host: "kiosque"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.10"
+  descr: "claude: rack kiosk on the X9SCM-F (nixos-iac #180) 2026-10-14"
+- host: "kiosque"
+  domain: "lab.example"
+  ip:
+  - "2001:db8:50:a::a"
+  descr: "claude: rack kiosk on the X9SCM-F (nixos-iac #180) 2026-10-14"
+- host: "kuma"
+  domain: "lab.example"
+  ip:
+  - "198.51.100.7"
+  descr: "claude: k3s ingress (migrated off aws Docker Traefik 2026-07-25)"
+- host: "loki"
+  domain: "lab.example"
+  ip:
+  - "198.51.100.7"
+  descr: "claude: converted from Cloudflare lab.example zone to local override 2026-07-23"
+- host: "home-device-03"
+  domain: "lab.example"
+  ip:
+  - "203.0.113.36"
+  descr: ""
+- host: "luna"
+  domain: "ipmi.example.com"
+  ip:
+  - "192.0.2.6"
+  descr: "claude: renamed stella -> ludotheque 2026-10-16 -> luna 2026-10-18"
+  aliases:
+  - host: "ludotheque"
+    domain: "ipmi.example.com"
+    description: "legacy name, remove once nothing references it"
+  - host: "serveur"
+    domain: "ipmi.example.com"
+    description: "legacy name, remove once nothing references it"
+- host: "luna"
+  domain: "ipmi.lab.example"
+  ip:
+  - "192.0.2.6"
+  descr: "claude: renamed stella -> ludotheque 2026-10-16 -> luna 2026-10-18"
+  aliases:
+  - host: "ludotheque"
+    domain: "ipmi.lab.example"
+    description: "legacy name, remove once nothing references it"
+  - host: "serveur"
+    domain: "ipmi.lab.example"
+    description: "legacy name, remove once nothing references it"
+- host: "luna"
+  domain: "lab.example"
+  ip:
+  - "2001:db8:50:a::8c"
+  descr: "claude: renamed stella -> ludotheque 2026-10-16 -> luna 2026-10-18"
+  aliases:
+  - host: "ludotheque"
+    domain: "lab.example"
+    description: "legacy name, remove once nothing references it"
+  - host: "serveur"
+    domain: "lab.example"
+    description: "legacy name, remove once nothing references it"
+- host: "luna"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.140"
+  descr: "claude: renamed stella -> ludotheque 2026-10-16 -> luna 2026-10-18"
+  aliases:
+  - host: "ludotheque"
+    domain: "lab.example"
+    description: "legacy name, remove once nothing references it"
+  - host: "serveur"
+    domain: "lab.example"
+    description: "legacy name, remove once nothing references it"
+- host: "n8n"
+  domain: "lab.example"
+  ip:
+  - "198.51.100.7"
+  descr: "claude: converted from Cloudflare lab.example zone to local override 2026-07-23"
+- host: "nas"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.65"
+  descr: ""
+- host: "nas"
+  domain: "lab.example"
+  ip:
+  - "2001:db8:50:a::41"
+  descr: ""
+- host: "ntfy"
+  domain: "lab.example"
+  ip:
+  - "198.51.100.7"
+  descr: "claude: k3s ingress (migrated off aws Docker Traefik 2026-07-25)"
+- host: "numeriseur"
+  domain: "lab.example"
+  ip:
+  - "198.51.100.7"
+  descr: ""
+- host: "router"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.254"
+  descr: ""
+- host: "router"
+  domain: "lab.example"
+  ip:
+  - "2001:db8:b:4200:d065:4e0:fcf:8b8b"
+  descr: ""
+- host: "plex"
+  domain: "lab.example"
+  ip:
+  - "198.51.100.7"
+  descr: "claude: repointed to k3s ingress 2026-08-06 (docker traefik retired)"
+- host: "stella"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.98"
+  descr: "claude: encodeur renamed stella 2026-10-17 (X11SRA-RF); encodeur alias kept during the transition"
+  aliases:
+  - host: "encodeur"
+    domain: "lab.example"
+    description: "transitional, remove after the stella rename settles"
+- host: "stella"
+  domain: "lab.example"
+  ip:
+  - "2001:db8:50:a::62"
+  descr: "claude: encodeur renamed stella 2026-10-17 (X11SRA-RF); encodeur alias kept during the transition"
+  aliases:
+  - host: "encodeur"
+    domain: "lab.example"
+    description: "transitional, remove after the stella rename settles"
+- host: "stella"
+  domain: "ipmi.lab.example"
+  ip:
+  - "192.0.2.8"
+  descr: "claude: encodeur renamed stella 2026-10-17 (X11SRA-RF); encodeur alias kept during the transition"
+  aliases:
+  - host: "encodeur"
+    domain: "ipmi.lab.example"
+    description: "transitional, remove after the stella rename settles"
+- host: "stella"
+  domain: "ipmi.example.com"
+  ip:
+  - "192.0.2.8"
+  descr: "claude: encodeur renamed stella 2026-10-17 (X11SRA-RF); encodeur alias kept during the transition"
+  aliases:
+  - host: "encodeur"
+    domain: "ipmi.example.com"
+    description: "transitional, remove after the stella rename settles"
+- host: "unifi"
+  domain: "lab.example"
+  ip:
+  - "198.51.100.7"
+  descr: ""
+- host: "unifi-inform"
+  domain: "lab.example"
+  ip:
+  - "198.51.100.7"
+  descr: "claude 2026-07-25: UniFi AP inform endpoint -> k3s Traefik ingress on aws. AP cannot reach VLAN10 nodes; 198.51.100.7 is reachable over WireGuard. Repoint here, not on the device."
+- host: "worker1"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.131"
+  descr: ""
+- host: "worker1"
+  domain: "lab.example"
+  ip:
+  - "2001:db8:50:a::83"
+  descr: ""
+- host: "worker2"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.132"
+  descr: ""
+- host: "worker2"
+  domain: "lab.example"
+  ip:
+  - "2001:db8:50:a::84"
+  descr: ""
+- host: "worker3"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.133"
+  descr: ""
+- host: "worker3"
+  domain: "lab.example"
+  ip:
+  - "2001:db8:50:a::85"
+  descr: "claude: VLAN10 IPv6 addressing convention"
+- host: "worker4"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.134"
+  descr: ""
+- host: "worker4"
+  domain: "lab.example"
+  ip:
+  - "2001:db8:50:a::86"
+  descr: "claude: VLAN10 IPv6 addressing convention"
+- host: "worker5"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.135"
+  descr: "claude: worker5 recreated CPU-only 2026-10-08 (IPv4 only, like the other stella guests)"
+- host: "win11"
+  domain: "lab.example"
+  ip:
+  - "192.0.2.143"
+  descr: "claude: Windows 11 Pro VM on stella (borrows arcade1 RTX 3050 6GB), 2026-09-26, replaces worker5 (.135, retired). A ONLY - IPv4-only guest on stella macvtap, like the arcades."

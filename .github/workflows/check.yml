@@ -1,0 +1,29 @@
+# Tests on every PR — including the ones pull-config.sh opens, where the
+# committed-config test is the lock that no secret value reached git.
+name: check
+
+on:
+  pull_request:
+    branches: [cp-1]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: PyYAML
+        run: python3 -c 'import yaml' || pip install pyyaml
+      - name: Redaction (the exporter itself)
+        run: php tests/redact-test.php
+      - name: data.php plan (keys, round-trip, refusals)
+        run: php tests/data-test.php
+      - name: data/*.yaml lint
+        run: sh tests/data-lint-test.sh
+      - name: Drift check verdicts
+        run: sh tests/drift-check-test.sh
+      - name: No secret value in config/config.xml
+        run: python3 tests/committed-config-test.py
